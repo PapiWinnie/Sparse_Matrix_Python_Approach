@@ -36,3 +36,7 @@ class SparseMatrix:
             self.matrix[(row, col)] = value
         elif (row, col) in self.matrix:
             del self.matrix[(row, col)]
+
+    def get_element(self, row, col):
+        return self.matrix.get((row, col), 0)
+
