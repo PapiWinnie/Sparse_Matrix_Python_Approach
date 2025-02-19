@@ -31,4 +31,8 @@ class SparseMatrix:
         except Exception as e:
             raise ValueError(f"Error reading file {file_path}: {str(e)}")
 
-    
+    def set_element(self, row, col, value):
+        if value != 0:  # Only store non-zero values
+            self.matrix[(row, col)] = value
+        elif (row, col) in self.matrix:
+            del self.matrix[(row, col)]
