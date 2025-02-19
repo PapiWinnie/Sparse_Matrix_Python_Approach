@@ -11,3 +11,11 @@ def find_txt_files(folder_path):
     if len(txt_files) < 2:
         raise FileNotFoundError("Error: Not enough .txt files found in sample_inputs folder.")
     return [os.path.join(folder_path, txt_files[i]) for i in range(2)]
+
+def save_result(result, operation_name, output_path):
+    with open(output_path, "w") as f:
+        f.write(f"rows={result.numRows}\n")
+        f.write(f"cols={result.numCols}\n")
+        for (row, col), value in sorted(result.matrix.items()):
+            f.write(f"({row},{col},{value})\n")
+
