@@ -37,3 +37,22 @@ def main():
         
         print(f"Matrix 1: {matrix1.numRows}x{matrix1.numCols}")
         print(f"Matrix 2: {matrix2.numRows}x{matrix2.numCols}")
+
+                # Choose operation
+        print("\nChoose operation: 1) Add 2) Subtract 3) Multiply")
+        operation = input().strip()
+        
+        # Perform operation
+        if operation == '1':
+            result = matrix1.add(matrix2)
+            operation_name = "Addition"
+        elif operation == '2':
+            result = matrix1.subtract(matrix2)
+            operation_name = "Subtraction"
+        elif operation == '3':
+            result = matrix1.multiply(matrix2)
+            operation_name = "Multiplication"
+        else:
+            print("Invalid operation")
+            return
+
