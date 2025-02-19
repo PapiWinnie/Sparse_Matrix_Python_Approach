@@ -39,4 +39,19 @@ class SparseMatrix:
 
     def get_element(self, row, col):
         return self.matrix.get((row, col), 0)
+    
+    def add(self, other):
+        max_rows = max(self.numRows, other.numRows)
+        max_cols = max(self.numCols, other.numCols)
+        result = SparseMatrix(max_rows, max_cols)
+
+        for (row, col), value in self.matrix.items():
+            result.set_element(row, col, value)
+
+        for (row, col), value in other.matrix.items():
+            current_value = result.get_element(row, col)
+            result.set_element(row, col, current_value + value)
+
+        return result
+
 
