@@ -19,3 +19,21 @@ def save_result(result, operation_name, output_path):
         for (row, col), value in sorted(result.matrix.items()):
             f.write(f"({row},{col},{value})\n")
 
+def main():
+    try:
+        # Set up paths
+        project_root = get_project_root()
+        input_folder = os.path.join(project_root, "sample_inputs")
+        result_path = os.path.join(input_folder, "result.txt")
+        
+        print(f"Looking for input files in: {input_folder}")
+        
+        # Load matrix files
+        matrix_files = find_txt_files(input_folder)
+        print(f"Loading matrices from: {os.path.basename(matrix_files[0])} and {os.path.basename(matrix_files[1])}")
+        
+        matrix1 = SparseMatrix.from_file(matrix_files[0])
+        matrix2 = SparseMatrix.from_file(matrix_files[1])
+        
+        print(f"Matrix 1: {matrix1.numRows}x{matrix1.numCols}")
+        print(f"Matrix 2: {matrix2.numRows}x{matrix2.numCols}")
