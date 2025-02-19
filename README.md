@@ -1,6 +1,4 @@
-Here’s the complete content of the `README.md` file in one piece:
 
-```markdown
 # Sparse Matrix Operations
 
 This project provides a Python implementation of sparse matrices and supports basic matrix operations such as addition, subtraction, and multiplication. The sparse matrix is represented using a dictionary to store only the non-zero elements, ensuring efficient memory usage.
@@ -123,9 +121,3 @@ The following errors are handled in the program:
 
 Feel free to fork the repository and submit pull requests for any improvements or bug fixes.
 
-## License
-
-This project is open source and available under the MIT License.
-```
-
-You can save this as the `README.md` file in your project directory!
