@@ -67,6 +67,21 @@ class SparseMatrix:
             result.set_element(row, col, current_value - value)
 
         return result
+    
+    def multiply(self, other):
+        if self.numCols != other.numRows:
+            raise ValueError("Matrix multiplication requires A.cols == B.rows.")
+
+        result = SparseMatrix(self.numRows, other.numCols)
+
+        for (row1, col1), value1 in self.matrix.items():
+            for (row2, col2), value2 in other.matrix.items():
+                if col1 == row2:
+                    current = result.get_element(row1, col2)
+                    result.set_element(row1, col2, current + value1 * value2)
+
+        return result
+
 
 
 
