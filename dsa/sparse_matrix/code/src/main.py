@@ -55,4 +55,27 @@ def main():
         else:
             print("Invalid operation")
             return
+        
+        # Save result
+        save_result(result, operation_name, result_path)
+        print(f"\nResult written to {os.path.basename(result_path)}")
+
+    except FileNotFoundError as e:
+        print(e)
+    except ValueError as e:
+        print(f"Error: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
+
 
